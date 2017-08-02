@@ -1,0 +1,27 @@
+## JAVA
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Maven
+target
+
+# IntelliJ
+.idea
+**/*.iml
+
+# personal spring boot properties
+application-lukas.properties
+
+
+## TEX
+*.aux
+*.idx
+*.log
+*.out
+*.pdf
+*.synctex.gz
+*.toc
+*.bbl
+*.blg
+
