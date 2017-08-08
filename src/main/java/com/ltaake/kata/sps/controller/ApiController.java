@@ -4,6 +4,10 @@ import com.ltaake.kata.sps.model.ComputerPlayer;
 import com.ltaake.kata.sps.model.Game;
 import com.ltaake.kata.sps.model.Result;
 import com.ltaake.kata.sps.model.Shape;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -20,7 +24,8 @@ public class ApiController {
         this.player = player;
     }
 
-    public Result play(Shape shape) {
+    @RequestMapping(path = "/play", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Result play(@RequestBody Shape shape) {
         return game.play(shape, player.choose());
     }
 }
