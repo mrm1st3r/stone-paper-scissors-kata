@@ -30,7 +30,7 @@ public class Game {
             return Result.LOSE;
         }
 
-        throw new IllegalStateException("");
+        throw new IllegalStateException("Shape combination not covered by rules");
     }
 
     private static class ShapeTuple {
