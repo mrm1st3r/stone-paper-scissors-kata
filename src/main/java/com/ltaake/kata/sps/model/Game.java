@@ -1,11 +1,14 @@
 package com.ltaake.kata.sps.model;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * The main game class that creates a result based on two given shapes.
  */
+@Component
 public class Game {
 
     private List<ShapeTuple> winningCombination;
