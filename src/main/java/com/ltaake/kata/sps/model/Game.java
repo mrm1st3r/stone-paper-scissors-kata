@@ -21,15 +21,16 @@ public class Game {
      * Decide a game round.
      * @return 0 for tie, 1 if the first wins and 2 if second wins
      */
-    public int play(Shape first, Shape second) {
+    public Result play(Shape first, Shape second) {
         if (first.equals(second)) {
-            return 0;
+            return Result.TIE;
+        } else if (winningCombination.contains(new ShapeTuple(first, second))) {
+            return Result.WIN;
+        } else if (winningCombination.contains(new ShapeTuple(second, first))) {
+            return Result.LOSE;
         }
-        if (winningCombination.contains(new ShapeTuple(first, second))) {
-            return 1;
-        } else {
-            return 2;
-        }
+
+        throw new IllegalStateException("");
     }
 
     private static class ShapeTuple {
