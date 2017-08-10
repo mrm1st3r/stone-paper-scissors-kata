@@ -6,8 +6,9 @@ class RoundRobinTest extends Specification {
 
     def "should cycle trough all shapes"() {
         given: "A new round robin"
-        def robin = new RoundRobin()
-        def shapes = Shape.values()
+        def game = new OriginalGame()
+        def robin = new RoundRobin(game)
+        def shapes = game.allowedShapes()
 
         expect: "cycles trough all shapes"
         for (Shape shape : shapes) {
