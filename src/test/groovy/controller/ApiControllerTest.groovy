@@ -12,10 +12,10 @@ class ApiControllerTest extends Specification {
     def "should play game"() {
         given:
         ComputerPlayer player = Mock()
-        ApiController controller = new ApiController(new OriginalGame(), player)
+        ApiController controller = new ApiController(new OriginalGame(), null, player)
 
         when:
-        def result = controller.play(Shape.PAPER)
+        def result = controller.original(Shape.PAPER)
 
         then:
         result == Result.WIN
