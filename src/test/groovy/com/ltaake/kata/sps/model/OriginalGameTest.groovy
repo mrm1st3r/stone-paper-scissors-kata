@@ -13,7 +13,7 @@ class OriginalGameTest extends Specification {
         Result.TIE == game.play(shape, shape)
 
         where:
-        shape << Shape.values()
+        shape << new OriginalGame().allowedShapes()
     }
 
     @Unroll
