@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stone Paper Scissors</title>
+</head>
+<body>
+
+<h1>Stone Paper Scissors</h1>
+<a href="" id="play">Play</a>
+<div id="result"></div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#play").click(function(){
+        $.post({
+            url: "/play",
+            data: "\"STONE\"",
+            contentType: "application/json",
+            success: function(data, textStatus, jqXHR) {
+                $('#result').html(data);
+            }
+        });
+        return false;
+    });
+});
+</script>
+</body>
+</html>
