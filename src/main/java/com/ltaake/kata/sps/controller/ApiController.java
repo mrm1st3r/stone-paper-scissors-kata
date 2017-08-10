@@ -28,12 +28,12 @@ public class ApiController {
     }
 
     @RequestMapping(path = "/original", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Result original(@RequestBody Shape shape) {
+    public GameRound original(@RequestBody Shape shape) {
         return original.play(shape, originalPlayer.choose());
     }
 
     @RequestMapping(path = "/wellAdded", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Result well(@RequestBody Shape shape) {
+    public GameRound well(@RequestBody Shape shape) {
         return wellAddedGame.play(shape, wellPlayer.choose());
     }
 }

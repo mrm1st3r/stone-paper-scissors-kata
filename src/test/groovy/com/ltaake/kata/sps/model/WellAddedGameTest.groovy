@@ -10,7 +10,7 @@ class WellAddedGameTest extends Specification {
         def game = new WellAddedGame()
 
         expect:
-        Result.TIE == game.play(shape, shape)
+        Result.TIE == game.play(shape, shape).getResult()
 
         where:
         shape << new WellAddedGame().allowedShapes()
@@ -22,7 +22,7 @@ class WellAddedGameTest extends Specification {
         def game = new WellAddedGame()
 
         expect:
-        Result.WIN == game.play(first, second)
+        Result.WIN == game.play(first, second).getResult()
 
         where:
         first           | second
@@ -40,7 +40,7 @@ class WellAddedGameTest extends Specification {
         def game = new WellAddedGame()
 
         expect:
-        Result.LOSE == game.play(first, second)
+        Result.LOSE == game.play(first, second).getResult()
 
         where:
         first           | second

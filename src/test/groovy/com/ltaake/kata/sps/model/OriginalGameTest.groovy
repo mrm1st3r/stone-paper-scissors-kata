@@ -10,7 +10,7 @@ class OriginalGameTest extends Specification {
         def game = new OriginalGame()
 
         expect:
-        Result.TIE == game.play(shape, shape)
+        Result.TIE == game.play(shape, shape).getResult()
 
         where:
         shape << new OriginalGame().allowedShapes()
@@ -22,7 +22,7 @@ class OriginalGameTest extends Specification {
         def game = new OriginalGame()
 
         expect:
-        Result.WIN == game.play(first, second)
+        Result.WIN == game.play(first, second).getResult()
 
         where:
         first           | second
@@ -37,7 +37,7 @@ class OriginalGameTest extends Specification {
         def game = new OriginalGame()
 
         expect:
-        Result.LOSE == game.play(first, second)
+        Result.LOSE == game.play(first, second).getResult()
 
         where:
         first           | second

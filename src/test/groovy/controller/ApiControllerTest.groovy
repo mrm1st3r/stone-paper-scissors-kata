@@ -15,7 +15,7 @@ class ApiControllerTest extends Specification {
         ApiController controller = new ApiController(new OriginalGame(), null, player, null)
 
         when:
-        def result = controller.original(Shape.PAPER)
+        def result = controller.original(Shape.PAPER).getResult()
 
         then:
         result == Result.WIN

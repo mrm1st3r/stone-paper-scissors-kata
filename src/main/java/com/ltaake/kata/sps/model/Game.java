@@ -14,17 +14,21 @@ public abstract class Game {
     /**
      * Decide a game round.
      */
-    public Result play(Shape first, Shape second) {
+    public GameRound play(Shape first, Shape second) {
         if (!allowedShapes().contains(first) || !allowedShapes().contains(second)) {
             throw new IllegalArgumentException("Illegal shape played");
         }
-
+        Result result = null;
         if (first.equals(second)) {
-            return Result.TIE;
+            result = Result.TIE;
         } else if (winningCombinations().contains(new ShapeTuple(first, second))) {
-            return Result.WIN;
+            result = Result.WIN;
         } else if (winningCombinations().contains(new ShapeTuple(second, first))) {
-            return Result.LOSE;
+            result = Result.LOSE;
+        }
+
+        if (result != null) {
+            return new GameRound(first, second, result);
         }
 
         throw new IllegalStateException("Shape combination not covered by rules");
