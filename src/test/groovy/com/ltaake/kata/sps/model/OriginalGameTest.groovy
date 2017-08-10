@@ -50,8 +50,15 @@ class OriginalGameTest extends Specification {
         given:
         def game = new OriginalGame()
 
-        when:
+        when: "second player uses well"
         game.play(Shape.PAPER, Shape.WELL)
+
+        then:
+        thrown(IllegalArgumentException)
+
+        and:
+        when: "first player uses well"
+        game.play(Shape.WELL, Shape.STONE)
 
         then:
         thrown(IllegalArgumentException)
