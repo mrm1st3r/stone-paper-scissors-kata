@@ -15,6 +15,10 @@ public abstract class Game {
      * Decide a game round.
      */
     public Result play(Shape first, Shape second) {
+        if (!allowedShapes().contains(first) || !allowedShapes().contains(second)) {
+            throw new IllegalArgumentException("Illegal shape played");
+        }
+
         if (first.equals(second)) {
             return Result.TIE;
         } else if (winningCombinations().contains(new ShapeTuple(first, second))) {

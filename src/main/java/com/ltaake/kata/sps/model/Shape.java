@@ -9,7 +9,8 @@ public enum Shape {
 
     STONE,
     PAPER,
-    SCISSORS;
+    SCISSORS,
+    WELL;
 
     @Override
     public String toString() {

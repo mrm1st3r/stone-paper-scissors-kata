@@ -3,7 +3,7 @@ package com.ltaake.kata.sps.model
 import spock.lang.Specification
 import spock.lang.Unroll
 
-class GameTest extends Specification {
+class OriginalGameTest extends Specification {
 
     def "same shapes should result in tie"() {
         given:
@@ -44,5 +44,16 @@ class GameTest extends Specification {
         Shape.STONE     | Shape.PAPER
         Shape.PAPER     | Shape.SCISSORS
         Shape.SCISSORS  | Shape.STONE
+    }
+
+    def "should not accept well"() {
+        given:
+        def game = new OriginalGame()
+
+        when:
+        game.play(Shape.PAPER, Shape.WELL)
+
+        then:
+        thrown(IllegalArgumentException)
     }
 }
