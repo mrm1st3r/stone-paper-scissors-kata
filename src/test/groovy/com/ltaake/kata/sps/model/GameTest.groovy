@@ -7,7 +7,7 @@ class GameTest extends Specification {
 
     def "same shapes should result in tie"() {
         given:
-        def game = new Game()
+        def game = new OriginalGame()
 
         expect:
         Result.TIE == game.play(shape, shape)
@@ -19,7 +19,7 @@ class GameTest extends Specification {
     @Unroll
     def "#first should win against #second"() {
         given:
-        def game = new Game()
+        def game = new OriginalGame()
 
         expect:
         Result.WIN == game.play(first, second)
@@ -34,7 +34,7 @@ class GameTest extends Specification {
     @Unroll
     def "#first should lose against #second"() {
         given:
-        def game = new Game()
+        def game = new OriginalGame()
 
         expect:
         Result.LOSE == game.play(first, second)
