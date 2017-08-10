@@ -16,4 +16,20 @@ class ShapeTest extends Specification {
         Shape.SCISSORS  | "SCISSORS"
         Shape.WELL      | "WELL"
     }
+
+    def "should not accept null"() {
+        when:
+        Shape.create(null)
+
+        then:
+        thrown(IllegalArgumentException)
+    }
+
+    def "should not accept unknown strings"() {
+        when:
+        Shape.create("foo")
+
+        then:
+        thrown(IllegalArgumentException)
+    }
 }
